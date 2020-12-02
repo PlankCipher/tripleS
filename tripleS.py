@@ -9,11 +9,18 @@ continuous = False
 last_key = None
 
 parser = argparse.ArgumentParser(
-    description='Keyboard switches sound simulator.')
+    description='Keyboard switches sound simulator.',
+    epilog='''
+Examples:
+  python tripleS.py -s sounds/modelm/
+  python tripleS.py -s sounds/modelm/ -v 1.7''',
+    formatter_class=argparse.RawDescriptionHelpFormatter)
+
 parser.add_argument('-v', '--volume', type=float, default=1,
                     help='Volume of switch sound (float)')
+
 parser.add_argument('-s', '--sounds', required=True, type=str,
-                    help='Path to directory cotaining switches sounds. Have a look at https://github.com/PlankCipher/tripleS/#Sounds for more info')
+                    help='Path to directory cotaining switches sounds. Have a look at https://github.com/PlankCipher/tripleS#sounds for more info')
 
 args = parser.parse_args()
 
@@ -22,7 +29,7 @@ space_path = ''
 others_paths = []
 
 if not path.isdir(args.sounds):
-    print('Couldn\'t parse sounds')
+    print('Couldn\'t parse sounds. Have a look at https://github.com/PlankCipher/tripleS#sounds for more info.')
     exit()
 else:
     files = listdir(args.sounds)
@@ -40,11 +47,11 @@ else:
             elif re.match(space_re, file) == None and re.match(enter_re, file) == None and re.match(other_re, file) != None:
                 others_paths.append(file)
     else:
-        print('Couldn\'t parse sounds')
+        print('Couldn\'t parse sounds. Have a look at https://github.com/PlankCipher/tripleS#sounds for more info.')
         exit()
 
     if not enter_path or not space_path or len(others_paths) == 0:
-        print('Couldn\'t parse sounds')
+        print('Couldn\'t parse sounds. Have a look at https://github.com/PlankCipher/tripleS#sounds for more info.')
         exit()
 
 
