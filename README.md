@@ -49,4 +49,4 @@ Contributions are highly appreciated, specially with sound files.
 
 ## Credits
 
-The credit for `Model M` and `Happy Hacking Keyboard Professional 2` sounds goes to [millerjs](https://github.com/millerjs)
+The credit for [`Model M`](https://webwit.nl/input/kbsim/) and [`Happy Hacking Keyboard Professional 2`](https://www.youtube.com/watch?v=9hXeG_YEkBs) sounds goes to [millerjs](https://github.com/millerjs).
