@@ -45,8 +45,8 @@ The directory must contain the following so that the program accepts using it:
 
 ## Contributions
 
-Contributions are highly appreciated, specially with sounds.
+Contributions are highly appreciated, specially with sound files.
 
 ## Credits
 
-The credit for `Model M` and `Happy Hacking Keyboard Professional 2` sounds goes to @millerjs
+The credit for `Model M` and `Happy Hacking Keyboard Professional 2` sounds goes to [millerjs](https://github.com/millerjs)
