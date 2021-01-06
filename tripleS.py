@@ -5,9 +5,6 @@ import argparse
 from os import path, listdir
 import re
 
-continuous = False
-last_key = None
-
 parser = argparse.ArgumentParser(
     description='Keyboard switches sound simulator.',
     epilog='''
@@ -24,13 +21,21 @@ parser.add_argument('-s', '--sounds', required=True, type=str,
 
 args = parser.parse_args()
 
+continuous = False
+last_key = None
+
 enter_path = ''
 space_path = ''
 others_paths = []
 
-if not path.isdir(args.sounds):
+
+def sounds_parse_error():
     print('Couldn\'t parse sounds. Have a look at https://github.com/PlankCipher/tripleS#sounds for more info.')
     exit()
+
+
+if not path.isdir(args.sounds):
+    sounds_parse_error()
 else:
     files = listdir(args.sounds)
 
@@ -47,12 +52,10 @@ else:
             elif re.match(space_re, file) == None and re.match(enter_re, file) == None and re.match(other_re, file) != None:
                 others_paths.append(file)
     else:
-        print('Couldn\'t parse sounds. Have a look at https://github.com/PlankCipher/tripleS#sounds for more info.')
-        exit()
+        sounds_parse_error()
 
     if not enter_path or not space_path or len(others_paths) == 0:
-        print('Couldn\'t parse sounds. Have a look at https://github.com/PlankCipher/tripleS#sounds for more info.')
-        exit()
+        sounds_parse_error()
 
 
 def KeyDownHandle(event):
